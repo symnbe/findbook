@@ -4,20 +4,20 @@
       <h2>User info</h2>
       <%= render 'users/info', user: @user %>
       <h2>New Book</h2>
-      <%= render 'books/form', book: @book %>
+      <%= render 'books/form', book: @book_new %>
     </div>
     <div class="col-md-8 offset-md-1">
       <h2>Books detail</h2>
       <table class="table">
         <tr>
           <td>
-            <%= link_to user_path(@user) do %>
-              <%= image_tag @user.get_profile_image(100, 100) %>
-              <%= @user.name %>
+            <%= link_to user_path(@book) do %>
+              <%= image_tag @book.user.get_profile_image(100, 100) %><br>
+              <%= @book.user.name%>
             <% end %>
           </td>
-          <td><%= @user.book.name, book_path(@user.book.id) %></td>
-          <td><%= @user.book.opinion %></td>
+          <td><%= link_to @book.title, book_path(@book.id) %></td>
+          <td><%= @book.opinion %></td>
         </tr>
       </table>
     </div>
